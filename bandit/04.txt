@@ -1,0 +1,3 @@
+Run : for x in {0..9}; do file ./inhere/-file0$x; done to get the file type of every file in inhere dir. Then cat inhere/-file07 to get password.
+
+password for level 5: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw

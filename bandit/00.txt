@@ -1,0 +1,3 @@
+Run : ssh bandit0@bandit.labs.overthewire.org -p 2220 and just cat the readme file.
+
+password for level 1: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If

@@ -1,0 +1,3 @@
+Run: find / -group bandit6 -user bandit7 -size 33c 2>/dev/null
+
+passwd for level 7: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj

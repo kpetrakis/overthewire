@@ -1,0 +1,11 @@
+gia tin monadiki grammi:
+sort data.txt | uniq -u
+
+gia na dw count:
+sort data.txt | uniq -c | less
+
+Note: to uniq doulevei mono se repeated lines. gia auto prepei na sortarw prwta!
+
+passwd for 9: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM  (old:EN632PlfYiZbn3PhVK3XOGSlNInNE00t)
+
+https://unix.stackexchange.com/questions/170043/sort-and-count-number-of-occurrence-of-lines
