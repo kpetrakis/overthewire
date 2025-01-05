@@ -1,0 +1,21 @@
+Run: ssh -i sshkey.private bandit14@localhost -p 2220 to connect to level bandit14.
+
+In level 14:
+  If I run: cat /etc/bandit_pass/bandit14 I get the password of the current level 14.
+
+  To get the password for level 15
+
+  passwd for level 14(15?) : MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+
+
+Alternative solution (my first try)
+-----------------------------------------------------------------------------------------------------------
+From local terminal Run : scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .
+to get the private key.
+
+I rename the local sshkey.private to sshkey14.private
+
+Then connect to bandit14 with : ssh -i sshkey14.private bandit14@bandit.labs.overthewire.org -p 2220
+(first I have to do: chmod 700 sshkey.private for the key to be accesible by me)
+
+na dw man ssh (-i).... nmzw borw na to apothikeusw to ~/.ssh/id/rsa kai na min xreiazetai to -i sshkey.private kathe fora...

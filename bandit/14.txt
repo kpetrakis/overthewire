@@ -1,0 +1,6 @@
+I get the current level password with cat /etc/bandit_pass/bandit14 (MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS)
+
+I have to send this to localhost, so I run: cat /etc/bandit_pass/bandit14 | nc localhost 30000.
+Or I can just use nc localhost 30000 and then type the current level password.
+
+passwd for level 15 : 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo (old: jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt)
