@@ -1,0 +1,3 @@
+Run: base64 -d data.txt
+
+passwd for 11: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr (old:6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM)

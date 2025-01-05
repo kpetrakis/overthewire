@@ -1,0 +1,3 @@
+answer: tr 'A-Za-z' 'N-ZA-Mn-za-m' < data.txt
+
+passwd for level 12: 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4 (old: JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv)

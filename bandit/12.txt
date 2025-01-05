@@ -1,0 +1,26 @@
+Run:
+- mktemp -d and got the temp directory: /tmp/tmp.BMZyYURQ2y. 
+- cp ~/data.txt /tmp/tmp.BMZyYURQ2y/ , cd /tmp/tmp.BMZyYURQ2y
+- xxd -r data.txt > data
+- file data , I see this is a gzip compressed file, so I add the .gz extension
+- mv data data.gz
+- gunzip data.gz . I get a file named data again
+- file data . I see it is bzip2 compressed
+- mv data data.bz2
+- gzip2 -d data.bz2 , and I get a file data
+- file data , it is gzip compressed.
+- mv data data.gz
+- gunzip data.gz
+- file data , it is tar archived
+- mv data data.tar
+- tar -xf data.tar , and I get data5.bin which is a tar archive
+- mv data5.bin data5.tar
+- tar -xf data5.tar , and I get data6.bin which is bzip2 compressed file
+- mv data6.bin data6.bz2
+- bzip2 -d data6.bz2, and I get data6 which is tar archive
+- tar -xf data6, and I get data8.bin which is gzip compressed
+- mv data8.bin data8.gz
+- gunzip data8.gz , and I get data8 which is ASCII text file
+- cat data8 and I get "The password is FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn"
+
+passwd for 13: (FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn)  (old: wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw)
