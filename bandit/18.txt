@@ -1,0 +1,6 @@
+Run : ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme using the passwd for level 18 from 17.txt.
+If I run ssh bandit18@bandit.labs.overthewire.org -p 2220 with level 18 password I get a bye bye response.
+
+.bashrd is running every time a terminal is loaded. ssh log loads a terminal. So in order to avoid loading bash, we must run the command we want using ssh.
+
+Password for level 19: cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8 (old: awhqfNnAbc1naukrpqDYcF95h7HoMTrC)
