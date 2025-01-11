@@ -1,0 +1,4 @@
+Run: diff -y --suppress-common-lines passwords.new passwords.old to get
+x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO			      |	ktfgBvpMzWKR5ENj26IbLGSblgUG9CzB
+
+password for level 18: x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO (old: hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg)

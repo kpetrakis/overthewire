@@ -1,0 +1,5 @@
+Run : echo -e $(cat /etc/bandit_pass/bandit15) | openssl s_client -connect localhost:30001 -ign_eof 
+
+(very usefull: man openssl-s_client)
+
+password for level 16 : kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx (old: JQttfApK4SeyHwDlI9SXGR50qclOAil1)
