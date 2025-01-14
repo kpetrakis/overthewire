@@ -1,0 +1,10 @@
+Run : cat /etc/bandit_pass/bandit20 | nc -l -p 1234 & 
+to setup a connection on localhost that listens on port 1234, returns the password for bandit20 but run this in the background.
+
+the I run : ./suconnect 1234 and I get the response:
+
+Read: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+Password matches, sending next password
+EeoULMCra2q0dSkYj561DX7s1CpBuOBt
+
+passwd for level 21: EeoULMCra2q0dSkYj561DX7s1CpBuOBt  (old:NvEJF7oVjkddltPSrdKEFOllh9V1IBcq)

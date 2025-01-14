@@ -1,0 +1,16 @@
+Running vim /etc/cron.d/cronjob_bandit22 the contents of this file are:
+
+@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+
+I see that it runs script /usr/bin/cronjob_bandit22.sh . Checking the contents of this file with vim /usr/bin/cronjob_bandit22.sh it contains 
+
+#!/bin/bash
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+
+So the script running fromn cron gives me read permissions to the file /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv which contains the password for level 22. So I just have to check the contents of this file. 
+
+Finally I run cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv and I get the password for level 22.
+
+passwd for level 22 : tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q (old: WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff)

@@ -1,0 +1,13 @@
+I see that bandit20-do has setuid bit set. The owner of the file is user bandit20. 
+
+So when I (bandit19) run the file i run it with user bandit20 privileges. That way I can see bandit20 password.
+
+I Run: ./bandit20-do cat /etc/bandit_pass/bandit20
+
+passwd for level 20: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO (old: VxCazJaVykI6W36BkBU0mJTCM8rR95XT)
+
+Note: 
+If I run ./bandit20-do id I get 
+uid=11019(bandit19) gid=11019(bandit19) euid=11020(bandit20) groups=11019(bandit19)
+
+Because setuid is set the effective user id of the process is equal with bandit20, but the real user id is bandit19
