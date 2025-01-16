@@ -1,0 +1,5 @@
+Picking up where I left off from level 25, while on level 26 I see that there is a setuid binary named bandit27-do owned by bandit27. 
+
+So I run : './bandit27-do cat /etc/bandit_pass/bandit27' to get the password for the next level.
+
+password for level 27: upsNCc7vzaRDx6oZC6GiR6ERwe1MowGB
