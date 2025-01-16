@@ -1,0 +1,39 @@
+First of all if I try to ssh with the bandi26.sshkey to the next level I get 
+
+  _                     _ _ _   ___   __  
+ | |                   | (_) | |__ \ / /  
+ | |__   __ _ _ __   __| |_| |_   ) / /_  
+ | '_ \ / _` | '_ \ / _` | | __| / / '_ \ 
+ | |_) | (_| | | | | (_| | | |_ / /| (_) |
+ |_.__/ \__,_|_| |_|\__,_|_|\__|____\___/ 
+Connection to bandit.labs.overthewire.org closed.
+
+and get disconnected immediately.
+
+To find the shell for user bandit26 I run : 'cat /etc/passwd | grep bandit26' and I get :
+
+bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+
+I see that the shell for user bandit26 is /usr/bin/showtext. I run 'cat /usr/bin/showtext' to check the contents of the script.
+
+#!/bin/sh
+
+export TERM=linux
+
+exec more ~/text.txt
+exit 0
+
+
+NOTE: In order to connect to level26, I can either copy the contents of the bandit26.sshkey localy or I can ssh directly from level25.
+
+I guess that the text.txt contains the dash-made bandit26 I see when I try to log in. Because of 'exec more' every time I log in we are just shown the text. I can hijack this by making the terminal window smaller than the text shown, which will force 'more' to go into command mode.
+
+From 'more' command mode, I type 'v' to get into vim.
+
+The simplest way now to get the password is to run : ':split /etc/bandit_pass/bandit26' or ':e /etc/bandit_pass/bandit26'.
+
+Or 
+
+If I want to open a bash shell and run commands there, I first have to replace the default /usr/bin/showtext. So I run ':set shell=/bin/bash' and then ':shell' and now I am in the home page of bandit26. 
+
+password for level 26 : s0773xxkk0MXfdqOfPRVr9L3jJBUOgCZ 

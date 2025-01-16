@@ -1,0 +1,21 @@
+Because we don't need to create new connections each time, the easiest thing would be to just create a file with all the possible brute force inputs and send that. The input must have the form: "bandit24_passwd pincode"
+
+First I created a folder in the /tmp directory running "mkdir /tmp/bruteforce24".
+
+Also I created an empty file which will contain all the possible inputs, using "touch inputs.txt".
+
+Then I wrote generate_input.sh script, which writes all possible brute force inputs in the inputs.txt file. 
+
+To run the script : 
+- chmod u+x generate_input.sh
+- ./generate_input.sh
+
+Now inputs.txt contains all the possible combinations of bandit24_passwd and pincodes. 
+
+I run: cat inputs.txt | nc localhost 30002 > responses.txt , to get all the daemon responses in responses.txt.
+
+Because for every wrong combination daemon returns the message "Wrong! Please enter the correct current password and pincode. Try again." 
+
+I run : cat responses.txt | grep -v -i "Wrong" and I get : "The password of user bandit25 is iCi86ttT4KSNe1armKiwbQNmB3YJP3q4"
+
+passwd for level 25: iCi86ttT4KSNe1armKiwbQNmB3YJP3q4 (old: p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d)
