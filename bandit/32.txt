@@ -1,0 +1,21 @@
+When I log in I am in a shell that converts evrything I type to uppercase....
+
+In order to spawn a different shell, I tried running '$SHELL' , but it spawns the same shell again.
+
+If I run '$0' I see that a sh shell is spawn..
+
+In that sh shell if I use 'echo $0' I get sh, but if I run 'echo $SHELL' I get /home/bandit32/uppershell, which is the script running when I log in and giving me the uppercase shell.
+
+I run 'ls -la' to check all the files and I get:
+drwxr-xr-x  2 root     root      4096 Sep 19 07:08 .
+drwxr-xr-x 70 root     root      4096 Sep 19 07:09 ..
+-rw-r--r--  1 root     root       220 Mar 31  2024 .bash_logout
+-rw-r--r--  1 root     root      3771 Mar 31  2024 .bashrc
+-rw-r--r--  1 root     root       807 Mar 31  2024 .profile
+-rwsr-x---  1 bandit33 bandit32 15136 Sep 19 07:08 uppershell
+
+I see that uppershell is a set-uid binary owned by user bandit33. If I run 'whoami' command I also get bandit33, which means we are if fact user bandit33 so can cat get the password for the next lever by running : 
+
+cat /etc/bandit_pass/bandit33
+
+passwd for level 33: tQdtbs5D5i2vJwkO8mEyYEyTL8izoeJ0
