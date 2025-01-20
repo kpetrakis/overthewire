@@ -1,0 +1,9 @@
+Run: mkdir /tmp/bandit27git && cd /tmp/bandit27git to create a tmp dir to download the git repo in.
+
+then I run git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo and I get a repo/ directory.
+
+It contains only one file named README.
+
+I run cat README and I get the password.
+
+passwd for level 28: Yz9IpL0sBcCeuG7m9uQFt8ZNpS4HZRcN

@@ -1,0 +1,40 @@
+Run: mkdir /tmp/bandit28git && cd /tmp/bandit28git to create a directory to download the git repo.
+
+I run git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo to get the repo.
+
+the I run cd repo. I see it contains a README with the following contents:
+
+- username: bandit29
+- password: xxxxxxxxxx
+
+I run git log and I take :
+
+commit 817e303aa6c2b207ea043c7bba1bb7575dc4ea73 (HEAD -> master, origin/master, origin/HEAD)
+Author: Morla Porla <morla@overthewire.org>
+Date:   Thu Sep 19 07:08:39 2024 +0000
+
+    fix info leak
+
+commit 3621de89d8eac9d3b64302bfb2dc67e9a566decd
+Author: Morla Porla <morla@overthewire.org>
+Date:   Thu Sep 19 07:08:39 2024 +0000
+
+    add missing data
+
+commit 0622b73250502618babac3d174724bb303c32182
+Author: Ben Dover <noone@overthewire.org>
+Date:   Thu Sep 19 07:08:39 2024 +0000
+
+    initial commit of README.md
+
+
+I check the contents of the REAMDE.md file in the inital commit by running git checkout HEAD~2. It contains no password at all. 
+
+I restore the HEAD running git checkout master (or git switch - if no other checkout has happened in between.) 
+
+I check the contents of REAMDE.md at 'add missing data' commit by running git checkout HEAD~1 and I see tha it contains:
+
+- username: bandit29
+- password: 4pT1t5DENaYuqnqvadYs1oE4QLCdjmJ7
+
+password for level 29: 4pT1t5DENaYuqnqvadYs1oE4QLCdjmJ7
