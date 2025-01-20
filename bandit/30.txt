@@ -1,6 +1,6 @@
 Run: mkdir /tmp/bandit30git && cd /tmp/bandit30git to create a directory to download the git repo.
 
-I run git clone ssh://bandit30-git@localhost:2220/home/bandit28-git/repo to get the repo.
+I run git clone ssh://bandit30-git@localhost:2220/home/bandit30-git/repo to get the repo.
 
 the I run cd repo. I see it contains a README with the following contents:
 
