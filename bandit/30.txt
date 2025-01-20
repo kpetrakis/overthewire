@@ -1,0 +1,14 @@
+Run: mkdir /tmp/bandit30git && cd /tmp/bandit30git to create a directory to download the git repo.
+
+I run git clone ssh://bandit30-git@localhost:2220/home/bandit28-git/repo to get the repo.
+
+the I run cd repo. I see it contains a README with the following contents:
+
+just an epmty file... muahaha
+
+After 30 minutes of searching(branches, remotes, etc...), I found out I need to exlore tags!
+If I run git tag I see a tag named 'secret'.
+
+I run git show secret and I get : fb5S2xb7bRyFmAvQYQGEqsbhVyJqhnDy which I guess is the password for the next level.
+
+password for level 31: fb5S2xb7bRyFmAvQYQGEqsbhVyJqhnDy

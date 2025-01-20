@@ -1,0 +1,32 @@
+Run: mkdir /tmp/bandit29git && cd /tmp/bandit29git to create a directory to download the git repo.
+
+I run git clone ssh://bandit29-git@localhost:2220/home/bandit28-git/repo to get the repo.
+
+the I run cd repo. I see it contains a README with the following contents:
+
+## credentials
+
+- username: bandit30
+- password: <no passwords in production!>
+
+From the password phrase there has to be something we branches. I run 'git branch -v -a' and I see
+
+  master                     6ac7796 fix username
+  remotes/origin/HEAD        -> origin/master
+  remotes/origin/dev         081ac38 add data needed for development
+  remotes/origin/master      6ac7796 fix username
+  remotes/origin/sploits-dev 7226732 add some silly exploit, just for shit and giggles
+
+After checking out spoilts-dev and dev, I see that the remotes/origin/dev branch contains the password.
+
+To check a remote branch I run these commands:
+- git fetch
+- git switch dev (or sploits-dev, the name of the remote to check) , this creates a local branch with the same name as the remote which tracks the remote.
+- git log
+
+After running these commands for the remotes/origin/dev branch the contents of README on last commit are:
+
+- username: bandit30
+- password: qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL
+
+passwd for level 30: qp30ex3VLz5MDG1n91YowTv4Q8l7CDZL
