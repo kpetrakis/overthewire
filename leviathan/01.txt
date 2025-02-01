@@ -1,0 +1,28 @@
+I can see that there is a set-user-id executable in my home directory named 'check'.
+
+If I run it with './check' , it prompts me to enter a password, and when I type a random one I get Wrong password, Good Bye ... 
+
+So I guess if I give it the correct password it will give me back the password for level 2. But what is the correct password??
+
+I thought I had to check the system calls called the by the programm, to check if I can find the password value with which it compares our prompt. But there is no info there.
+
+I used 'ltrace', to see all the dynamic library calls. I run 'ltrace ./check' and I get 
+
+__libc_start_main(0x80490ed, 1, 0xffffd494, 0 <unfinished ...>
+printf("password: ")                                                               = 10
+getchar(0, 0, 0x786573, 0x646f67password: 123
+)                                                  = 49
+getchar(0, 49, 0x786573, 0x646f67)                                                 = 50
+getchar(0, 0x3231, 0x786573, 0x646f67)                                             = 51
+strcmp("123", "sex")                                                               = -1
+puts("Wrong password, Good Bye ..."Wrong password, Good Bye ...
+)                                               = 29
++++ exited (status 0) +++
+
+after typing 123 in my prompt. I can see that it uses strcmp to compare what I typed with the word 'sex'. So I guess that If I type in 'sex' I will get the right password back.
+
+I type in 'sex' in the prompt and a new shell opens, in which we have leviathan2 user privilleges, due to the SUID binary. 
+
+So I run 'cat /etc/leviathan_pass/leviathan2' and I get NsN1HwFoyN.
+
+password for level 2: NsN1HwFoyN
